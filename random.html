@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="nameCtrl">
+      <table border="1" width="100%">
+        <tr>
+          <th ng-click="orderByMe('name')">Name</th>
+          <th ng-click="orderByMe('country')">Country</th>
+        </tr>
+        <tr ng-repeat="x in names | orderBy:myOrderBy">
+          <td>{{x.name}}</td>
+          <td>{{x.country}}</td>
+        </tr>
+      </table>
+    </div> -->
+<script type="text/javascript">
+  // angular.module('myApp',[]).controller('nameCtrl',function($scope){
+  //   $scope.names = [
+  //       {name:'Jani',country:'Norway'},
+  //       {name:'Carl',country:'Sweden'},
+  //       {name:'Margareth',country:'England'},
+  //       {name:'Hege',country:'Norway'},
+  //       {name:'Joe',country:'Denmark'},
+  //       {name:'Gustav',country:'Sweden'},
+  //       {name:'Birgit',country:'Denmark'},
+  //       {name:'Mary',country:'England'},
+  //       {name:'Kai',country:'Norway'}
+  //       ];
+  //       $scope.orderByMe = function(x){
+  //         $scope.myOrderBy = x;
+  //       }
+  // })
+
+  let dataReceivedSuccessfully = true;
+
+//Promise Part1
+//(creating and defining successful and not successful conditions)
+promise1 = new Promise((resolve, reject) => {
+  let some_array = [1, 2, 3, 4, 5];
+  let some_object = {
+    color: 'red',
+    person: {
+      name: "mike",
+      age: '35'
+    }
+  };
+
+  if (dataReceivedSuccessfully)
+    resolve(some_array); //passing an array as single argument
+  else
+    reject(some_object); //passing an object as single argument
+
+});
+
+
+//Promise Part2
+//(defining the executing function for resolve() and reject()
+promise1.then((message) => {
+  console.log(`${message}`);
+  //displays 1,2,3,4,5 if dataReceivedSuccessfully=true
+
+}).catch((message) => {
+
+  console.log(`error`);
+  console.log(`${message.color}`);
+  //displays strings, "error" "red" if dataReceivedSuccessfully=false
+
+});
+
+</script>
+
+  </body>
+</html>
